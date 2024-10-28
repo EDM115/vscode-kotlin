@@ -78,6 +78,9 @@
                     "include": "#class-declaration"
                 },
                 {
+                    "include": "#block-declaration"
+                },
+                {
                     "include": "#object"
                 },
                 {
@@ -319,6 +322,26 @@
                     ]
                 }
             }
+        },
+        "block-declaration": {
+            "name": "meta.block.js",
+            "begin": "\\{",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.block.js"
+                }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.block.js"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#code"
+                }
+            ]
         },
         "object": {
             "match": "\\b(object)(?:\\s+(\\b\\w+\\b|`[^`]+`))?",
