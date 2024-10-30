@@ -29,7 +29,7 @@ export class ServerDownloader {
     ) {}
     
     private async latestReleaseInfo(): Promise<GitHubReleasesAPIResponse> {
-        const rawJson = await requestPromise.get(`https://api.github.com/repos/fwcd/${this.githubProjectName}/releases/latest`, {
+        const rawJson = await requestPromise.get(`https://api.github.com/repos/maksimr/${this.githubProjectName}/releases/latest`, {
             headers: { "User-Agent": "vscode-kotlin-ide" }
         });
         return JSON.parse(rawJson) as GitHubReleasesAPIResponse;
