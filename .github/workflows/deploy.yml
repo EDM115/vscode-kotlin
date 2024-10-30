@@ -37,6 +37,7 @@ jobs:
           asset_name: kotlin-${{ github.ref }}.vsix
           asset_content_type: application/zip
       - name: Publish extension to VSC marketplace
+        if: false
         run: npm run publish-extension -- -p $VSC_TOKEN
         env:
           VSC_TOKEN: ${{ secrets.VSC_TOKEN }}
