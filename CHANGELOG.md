@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to the Kotlin extension will be documented here.
 
+## [0.2.36]
+d408727 fix syntax highlighting problem for trailing lambda in string interpolation
+a53896a fix #158 Kotlin Language Client client: couldn't create connection to server on windows
+
 ## [0.2.35]
 - Improve keyword highlighting
 - Add config options for code generation (needed for Java interoperability), which is now opt-in due to a lack of stability on recent Kotlin versions
