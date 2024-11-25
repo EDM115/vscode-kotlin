@@ -28,7 +28,7 @@ export async function registerDebugAdapter({ context, status, config, javaInstal
     
     // Ensure that start script can be executed
     if (isOSUnixoid()) {
-        child_process.exec(`chmod +x ${startScriptPath}`);
+        child_process.exec(`chmod +x "${startScriptPath}"`);
     }
 
     let env: any = { ...process.env };

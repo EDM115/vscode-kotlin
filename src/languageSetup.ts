@@ -209,7 +209,7 @@ function createLanguageClient(options: {
     
     // Ensure that start script can be executed
     if (isOSUnixoid()) {
-        child_process.exec(`chmod +x ${options.startScriptPath}`);
+        child_process.exec(`chmod +x "${options.startScriptPath}"`);
     }
 
     // Start the child Java process
@@ -219,7 +219,7 @@ function createLanguageClient(options: {
         serverOptions = () => spawnLanguageServerProcessAndConnectViaTcp(options);
     } else {
         serverOptions = {
-            command: options.startScriptPath,
+            command: `"${options.startScriptPath}"`,
             args: [],
             options: {
                 shell: true,
@@ -248,7 +248,7 @@ export function spawnLanguageServerProcessAndConnectViaTcp(options: {
         // Wait for the first client to connect
         server.listen(options.tcpPort, () => {
             const tcpPort = (server.address() as net.AddressInfo).port.toString();
-            const proc = child_process.spawn(options.startScriptPath, ["--tcpClientPort", tcpPort], { shell: true });
+            const proc = child_process.spawn(`"${options.startScriptPath}"`, ["--tcpClientPort", tcpPort], { shell: true });
             LOG.info("Creating client at {} via TCP port {}", options.startScriptPath, tcpPort);
             
             const outputCallback = data => options.outputChannel.append(`${data}`);
